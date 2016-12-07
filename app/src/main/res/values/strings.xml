@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Pendaftaran Praktikum</string>
+    <string name="npm">NPM</string>
+    <string name="name">Nama</string>
+    <string name="classes">Kelas</string>
+    <string name="session">Sesi</string>
+    <string name="morning">Pagi (09.00-11.00 WIB)</string>
+    <string name="afternoon">Siang (13.00-15.00 WIB)</string>
+    <string name="register">Daftar</string>
+    <string name="view">Lihat Data</string>
+    <string name="error">Kesalahan Jaringan</string>
+</resources>
