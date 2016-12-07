@@ -1,6 +1,7 @@
 package id.sulistiyanto.pendaftaranpraktikum;
 
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,10 +36,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         Result result = results.get(position);
-        holder.textViewNPM.setText(result.getNpm());
-        holder.textViewNama.setText(result.getNama());
-        holder.textViewKelas.setText(result.getKelas());
-        holder.textViewSesi.setText(result.getSesi());
+        holder.textViewNPM.setText(Html.fromHtml("<b>" + "NPM :"+ "</b> " + result.getNpm()));
+        holder.textViewNama.setText(Html.fromHtml("<b>" + "Nama :"+ "</b> " + result.getNama()));
+        holder.textViewKelas.setText(Html.fromHtml("<b>" + "Kelas :"+ "</b> " + result.getKelas()));
+        holder.textViewSesi.setText(Html.fromHtml("<b>" + "Sesi :"+ "</b> " + result.getSesi()));
     }
 
     @Override
