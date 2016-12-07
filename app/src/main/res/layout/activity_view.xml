@@ -11,6 +11,12 @@
     android:background="#E0E0E0"
     tools:context="id.sulistiyanto.pendaftaranpraktikum.ViewActivity">
 
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
