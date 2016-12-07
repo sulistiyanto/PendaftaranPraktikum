@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.buttonDaftar) void daftar() {
         //membuat progress dialog
         progress = new ProgressDialog(this);
-        progress.setCancelable(true);
+        progress.setCancelable(false);
         progress.setMessage("Loading ...");
         progress.show();
 
