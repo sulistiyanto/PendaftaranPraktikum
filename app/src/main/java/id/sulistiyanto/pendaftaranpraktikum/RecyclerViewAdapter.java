@@ -1,5 +1,7 @@
 package id.sulistiyanto.pendaftaranpraktikum;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.view.LayoutInflater;
@@ -18,10 +20,11 @@ import butterknife.ButterKnife;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
 
-
+    private Context context;
     private List<Result> results;
 
-    public RecyclerViewAdapter(List<Result> results) {
+    public RecyclerViewAdapter(Context context, List<Result> results) {
+        this.context = context;
         this.results = results;
     }
 
@@ -36,10 +39,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         Result result = results.get(position);
-        holder.textViewNPM.setText(Html.fromHtml("<b>" + "NPM :"+ "</b> " + result.getNpm()));
-        holder.textViewNama.setText(Html.fromHtml("<b>" + "Nama :"+ "</b> " + result.getNama()));
-        holder.textViewKelas.setText(Html.fromHtml("<b>" + "Kelas :"+ "</b> " + result.getKelas()));
-        holder.textViewSesi.setText(Html.fromHtml("<b>" + "Sesi :"+ "</b> " + result.getSesi()));
+        holder.textViewNPM.setText(result.getNpm());
+        holder.textViewNama.setText(result.getNama());
+        holder.textViewKelas.setText(result.getKelas());
+        holder.textViewSesi.setText(result.getSesi());
     }
 
     @Override
@@ -47,7 +50,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         return results.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         @BindView(R.id.textNPM) TextView textViewNPM;
         @BindView(R.id.textNama) TextView textViewNama;
@@ -57,6 +60,22 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         public ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            String npm = textViewNPM.getText().toString();
+            String nama = textViewNama.getText().toString();
+            String kelas = textViewKelas.getText().toString();
+            String sesi = textViewSesi.getText().toString();
+
+            Intent i = new Intent(context, UpdateActivity.class);
+            i.putExtra("npm", npm);
+            i.putExtra("nama", nama);
+            i.putExtra("kelas", kelas);
+            i.putExtra("sesi", sesi);
+            context.startActivity(i);
         }
     }
 }

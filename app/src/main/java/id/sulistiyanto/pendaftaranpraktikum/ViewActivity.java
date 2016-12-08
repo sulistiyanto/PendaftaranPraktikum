@@ -1,5 +1,6 @@
 package id.sulistiyanto.pendaftaranpraktikum;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -8,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +39,7 @@ public class ViewActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Daftar Mahasiswa Praktikum");
 
-        viewAdapter = new RecyclerViewAdapter(results);
+        viewAdapter = new RecyclerViewAdapter(this, results);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -70,7 +72,7 @@ public class ViewActivity extends AppCompatActivity {
                 progressBar.setVisibility(View.GONE);
                 if (value.equals("1")) {
                     results = response.body().getResult();
-                    viewAdapter = new RecyclerViewAdapter(results);
+                    viewAdapter = new RecyclerViewAdapter(ViewActivity.this, results);
                     recyclerView.setAdapter(viewAdapter);
                 }
             }
