@@ -67,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Value> call, Throwable t) {
+                t.printStackTrace();
                 progress.dismiss();
                 Toast.makeText(MainActivity.this, "Jaringan Error!", Toast.LENGTH_SHORT).show();
             }

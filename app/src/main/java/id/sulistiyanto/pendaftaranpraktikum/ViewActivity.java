@@ -58,6 +58,12 @@ public class ViewActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadDataMahasiswa();
+    }
+
     private void loadDataMahasiswa() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(URL)
