@@ -13,17 +13,17 @@ import retrofit2.http.POST;
 public interface RegisterAPI {
 
     @FormUrlEncoded
-    @POST("/insert.php")
+    @POST("insert.php")
     Call<Value> daftar(@Field("npm") String npm,
                        @Field("nama") String nama,
                        @Field("kelas") String kelas,
                        @Field("sesi") String sesi);
 
-    @GET("/view.php")
+    @GET("view.php")
     Call<Value> view();
 
     @FormUrlEncoded
-    @POST("/update.php")
+    @POST("update.php")
     Call<Value> ubah(@Field("npm") String npm,
                      @Field("nama") String nama,
                      @Field("kelas") String kelas,
@@ -31,10 +31,10 @@ public interface RegisterAPI {
 
 
     @FormUrlEncoded
-    @POST("/delete.php")
+    @POST("delete.php")
     Call<Value> hapus(@Field("npm") String npm);
 
     @FormUrlEncoded
-    @POST("/search.php")
+    @POST("search.php")
     Call<Value> search(@Field("search") String search);
 }
